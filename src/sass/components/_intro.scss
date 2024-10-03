@@ -1,0 +1,150 @@
+@use "../mixins/_responsive" as r;
+@use "../variables/_fonts" as f;
+@use "../variables/_colors" as c;
+@use "sass:color";
+
+.intro {
+    margin: 3rem;
+
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 2rem;
+
+        @include r.media-desktop {
+            flex-direction: row;
+            gap: 3rem;
+            align-items: center;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+
+        @include r.media-tablet {
+            align-items: center;
+        }
+
+        @include r.media-desktop {
+            align-items: flex-start;
+        }
+
+        @include r.media-desktop-wide {
+            align-items: flex-start;
+        }
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: c.$color-black;
+        line-height: 1.1;
+        text-align: center;
+
+        @include r.media-tablet {
+            width: 15ch;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        @include r.media-desktop {
+            font-size: 3rem;
+            text-align: left;
+        }
+
+        @include r.media-desktop-wide {
+            font-size: 4rem;
+            text-align: left;
+        }
+    }
+
+    &__description {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+
+        @include r.media-tablet {
+            text-align: center;
+            width: unset;
+        }
+
+        @include r.media-desktop {
+            text-align: left;
+            width: 40ch;
+        }
+
+        @include r.media-desktop-wide {
+            text-align: left;
+            font-size: 1.2rem;
+            width: 50ch;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+
+        @include r.media-tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__button {
+        background-color: c.$color-yellow;
+        color: c.$color-black;
+        font-size: 1.2rem;
+        padding: .5rem 1.5rem;
+        border-radius: 5px;
+        transition: background-color .3s ease-in-out;
+
+        &:hover {
+            background-color: darken(c.$color-yellow, 5%);
+        }
+    }
+
+    &__info {
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+
+        @include r.media-tablet {
+            width: unset;
+            font-weight: 400;
+            font-size: .9rem;
+        }
+        
+        @include r.media-desktop-wide {
+            font-size: 1rem;
+            width: 40ch;
+        }
+
+        @include r.media-desktop {
+            width: 30ch;
+        }
+
+    }
+
+    &__img {
+        border-radius: 12px;
+
+        @include r.media-tablet {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        @include r.media-desktop {
+            width: 400px;
+        }
+
+        @include r.media-desktop-wide {
+            width: unset;
+        }
+    }
+}

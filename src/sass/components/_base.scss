@@ -1,0 +1,67 @@
+@use "../variables/_fonts" as f;
+@use "../variables/_colors" as c;
+@use "../mixins/_responsive" as r;
+
+html {
+  box-sizing: border-box;
+  font-family: f.$font-poppins;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: c.$color-white;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
+
+  @include r.media-desktop-wide {
+    max-width: 1400px;
+  }
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-wrap: nowrap;
+  margin: 0;
+
+  &--white {
+    color: c.$color-white;
+  }
+}

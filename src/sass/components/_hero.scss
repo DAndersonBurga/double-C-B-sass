@@ -1,0 +1,55 @@
+@use "../mixins/_responsive" as r;
+@use "../variables/_colors" as c;
+
+.hero {
+  background: linear-gradient(
+      to top right,
+      rgba(255, 207, 35, 0.7),
+      rgba(255, 226, 123, 0.7)
+    ),
+    url("/img/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 30%;
+  height: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  &__message {
+    font-size: 1rem;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    color: c.$color-black;
+    line-height: 1.2;
+
+    @include r.media-tablet {
+      font-size: 2.5rem;
+    }
+
+    @include r.media-desktop {
+      width: 25ch;
+      font-size: 3rem;
+    }
+  }
+
+  &__btn {
+    padding: .8rem 1rem;
+    background-color: c.$color-white;
+    color: c.$color-black;
+    border-radius: 12px;
+    transition: background-color .3s ease-in-out;
+
+    &:hover {
+      background-color: darken(c.$color-white, 10%);
+    }
+  }
+}

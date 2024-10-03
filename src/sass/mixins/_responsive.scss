@@ -1,0 +1,28 @@
+$screen-phone: 480px;
+$screen-tablet: 744px;
+$screen-desktop: 1024px;
+$screen-desktop-wide: 1440px;
+
+@mixin media-desktop-wide {
+  @media screen and (min-width: $screen-desktop-wide) {
+    @content();
+  }
+}
+
+@mixin media-desktop {
+  @media screen and (min-width: $screen-desktop) {
+    @content();
+  }
+}
+
+@mixin media-tablet {
+  @media screen and (min-width: $screen-tablet) {
+    @content;
+  }
+}
+
+@mixin media-phone {
+  @media screen and (max-width: $screen-phone) {
+    @content;
+  }
+}

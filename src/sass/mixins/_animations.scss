@@ -1,0 +1,27 @@
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideOut {
+  to {
+    transform: translateX(100%);
+  }
+
+  from {
+    transform: translateX(0);
+  }
+}
+
+@mixin slideIn {
+  animation: slideIn forwards 0.3s ease-in-out;
+}
+
+@mixin slideOut {
+  animation: slideOut forwards 0.3s ease-in-out;
+}

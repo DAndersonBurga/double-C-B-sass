@@ -1,0 +1,131 @@
+@use "../mixins/_responsive" as r;
+@use "../variables/_colors" as c;
+
+.footer {
+  background-color: c.$color-black;
+  color: c.$color-white;
+  padding: 4rem 0;
+
+  .logo {
+    text-align: center;
+    @include r.media-tablet {
+      text-align: left;
+    }
+
+    @include r.media-desktop {
+      display: block;
+    }
+  }
+
+  &__grid {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+
+    @include r.media-desktop {
+      flex-direction: column;
+    }
+
+    @include r.media-desktop-wide {
+      flex-direction: row;
+    }
+  }
+
+  &__block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include r.media-tablet {
+      flex-direction: row;
+      gap: 3rem;
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+
+    @include r.media-tablet {
+      justify-content: space-between;
+    }
+
+    @include r.media-desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @include r.media-desktop-wide {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    &-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    &-link {
+      color: darken(c.$color-white, 20%);
+      font-size: 0.875rem;
+      font-weight: 300;
+
+      &:hover {
+        color: lighten(c.$color-white, 20%);
+      }
+    }
+  }
+
+  &__subscribe {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+
+    &-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-align: center;
+
+      @include r.media-tablet {
+        text-align: unset;
+      }
+    }
+
+    &-form {
+      input[type="search"] {
+        background-color: lighten(c.$color-black, 30%);
+        color: c.$color-white;
+        border: none;
+        padding: 0.8rem;
+        border-radius: 32px;
+        width: 100%;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+
+    &-text {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: darken(c.$color-white, 50%);
+      text-align: center;
+
+      @include r.media-tablet {
+        width: 28ch;
+        text-align: unset;
+      }
+    }
+  }
+}
